@@ -1,6 +1,6 @@
 # Log Book
 
-According to the definitions by Oxford Languages, a log book is an official record of events during the voyage of a ship or aircraft. This simple application will help you manage your daily voyage logs. 😄
+According to the definitions by Oxford Languages, a log book is an official record of events during the voyage of a ship or aircraft. However, people use logbooks to report on ordinary everyday life. This simple application will help you write and manage your logs. 😄
 
 ## Installation & Configuration
 
