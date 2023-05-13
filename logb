@@ -1,0 +1,39 @@
+#!/bin/bash
+
+BASE_PATH="$HOME/.me"
+if [ ! -d $BASE_PATH ]; then
+  mkdir $BASE_PATH
+fi
+
+DEFAULT_EDITOR=$EDITOR
+if [ -z $DEFAULT_EDITOR ]; then
+  DEFAULT_EDITOR=$(which vim)
+fi
+
+cmd=$1
+
+case $cmd in
+    "backup")
+      echo "-- Compressing files"
+      tar -czvf $BASE_PATH --exclude-ignore="*.tar*"
+      echo "-- Backuping files [Work In Progress]"
+      ;;
+    "install")
+      echo "-- Installing dependencies"
+      sudo apt-get install silversearcher-ag
+      sudo apt-get install vim
+      ;;
+    "find")
+      ag $2 $BASE_PATH
+      ;;
+    "open")
+      $DEFAULT_EDITOR -R $2
+      # [WIP] Expand read only mode to others editors (?)
+      ;;
+    *)
+      filename=$(date +"%m%d%Y")
+      filepath="$BASE_PATH/$filename"
+      touch $filepath
+      $DEFAULT_EDITOR $filepath
+      ;;
+esac
